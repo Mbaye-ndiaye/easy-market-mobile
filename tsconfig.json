@@ -12,6 +12,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-  ]
+    "expo-env.d.ts",
+    "nativewind-env.d.ts"
+, "app/Login.tsx", "app/DetailsDepense.tsx", "app/AjouterDepense.tsx", "app/AfficherDepense.tsx", "app/SignUp.tsx", "app/(tabs)/Accueil.tsx"  ]
 }
