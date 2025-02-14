@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useRouter } from 'expo-router';
+
 import {
   View,
   Text,
@@ -43,6 +45,7 @@ export default function AddExpenseScreen() {
   const [showPaymentMethodModal, setShowPaymentMethodModal] = useState(false);
   const [newExpenseType, setNewExpenseType] = useState('');
   const [expenseTypes, setExpenseTypes] = useState(initialExpenseTypes);
+  const router = useRouter()
 
   const handleSave = () => {
     console.log('Saving expense...');
@@ -147,9 +150,10 @@ export default function AddExpenseScreen() {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
+      <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity style={styles.backButton} onPress={() => router.push('/AfficherDepense')}>
           <Text>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Ajout dépense</Text>
@@ -235,14 +239,16 @@ export default function AddExpenseScreen() {
           </TouchableOpacity>
         </View>
       </View>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#fff',
+    height: "100%"
   },
   header: {
     flexDirection: 'row',

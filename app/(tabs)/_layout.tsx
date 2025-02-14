@@ -30,6 +30,7 @@ export default function TabLayout() {
     >
       <Tabs.Screen
         name="index"
+        
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
@@ -69,6 +70,16 @@ export default function TabLayout() {
         name="modules"
         options={{
           title: "Modules",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="paperplane.fill" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="afficherDepense"
+        options={{
+          title: "AfficherDepense",
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="paperplane.fill" color={color} />
           ),

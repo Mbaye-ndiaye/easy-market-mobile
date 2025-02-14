@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, SafeAreaView } from 'react-native';
 import { Ionicons, MaterialIcons, Feather } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 interface ExpenseDetailProps {
   onBack: () => void;
   onDelete: () => void;
   onSave: () => void;
 }
+const router = useRouter()
 
 export const ExpenseDetail: React.FC<ExpenseDetailProps> = ({
   onBack,
@@ -14,10 +16,12 @@ export const ExpenseDetail: React.FC<ExpenseDetailProps> = ({
   onSave
 }) => {
   return (
+    <SafeAreaView>
     <View style={styles.container}>
+      
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={onBack} style={styles.backButton}>
+        <TouchableOpacity onPress={onBack} style={styles.backButton} >
           <Ionicons name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Détail dépense</Text>
@@ -89,13 +93,15 @@ export const ExpenseDetail: React.FC<ExpenseDetailProps> = ({
         </View>
       </ScrollView>
     </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#fff',
+    height: "100%",
   },
   header: {
     flexDirection: 'row',

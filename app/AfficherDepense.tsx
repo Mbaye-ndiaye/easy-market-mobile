@@ -1,12 +1,19 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, SafeAreaView } from 'react-native';
 
 const AfficherDepense = () => {
   const router = useRouter();
 
   return (
+    <SafeAreaView>
     <View style={styles.page}>
+      <View style={styles.header}>
+      <TouchableOpacity style={styles.backButton} onPress={() => router.push('/modules')}>
+                <Text>←</Text>
+              </TouchableOpacity>
+              <Text style={styles.headerTitle}>Afficher dépense</Text>
+              </View>
       <TextInput
         style={styles.input}
         placeholder="Rechercher ici"
@@ -38,14 +45,16 @@ const AfficherDepense = () => {
         <Text style={styles.addButtonText}>+</Text>
       </TouchableOpacity>
     </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   page: {
     backgroundColor: 'white',
-    flex: 1,
+    // flex: 1,
     padding: 15,
+    height: "100%"
   },
   input: {
     marginBottom: 15,
@@ -55,6 +64,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#f8f8f8",
     borderRadius: 5,
     fontSize: 16,
+  },
+  backButton: {
+    padding: 8,
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    margin: "auto",
+  },
+  header: {
+    flexDirection: "row",
+    // justifyContent: "space-around",
+    alignItems: "center",
+    paddingHorizontal: 15,
+    marginBottom: 15,
   },
   dateText: {
     fontSize: 16,
